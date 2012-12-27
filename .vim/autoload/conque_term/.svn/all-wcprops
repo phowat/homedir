@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term
+END
+conque_screen.py
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_screen.py
+END
+conque_win32_util.py
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_win32_util.py
+END
+conque.py
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque.py
+END
+conque_sole_shared_memory.py
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_sole_shared_memory.py
+END
+conque_sole.py
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_sole.py
+END
+conque_sole_communicator.py
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_sole_communicator.py
+END
+conque_sole_wrapper.py
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_sole_wrapper.py
+END
+conque_globals.py
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_globals.py
+END
+conque_subprocess.py
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_subprocess.py
+END
+conque_sole_subprocess.py
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/instantvoice/!svn/ver/13967/config-instant/trunk/skel/.vim/autoload/conque_term/conque_sole_subprocess.py
+END

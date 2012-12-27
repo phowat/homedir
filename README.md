@@ -1,4 +1,4 @@
-dotfiles
-========
+Homedir
+=======
 
-My dotfiles
+My ~/ basic configuration files and scripts. 
