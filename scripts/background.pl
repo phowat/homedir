@@ -6,10 +6,7 @@
 use autodie;
 use utf8;
 use Data::Dumper;
-
-## CONFIGURATION BITS 
-my $wallpapers_dir = "/home/pedro/wallpapers/";
-#### END
+use Config::Simple;
 
 sub list_dir {
     my $dir = shift;
@@ -47,13 +44,15 @@ sub set_wallpaper {
     system("/usr/bin/feh", "--bg-max", $wallpaper_name);
 };
 
+my $conf = new Config::Simple('/home/pedro/.bgrc');
+my $wallpapers_dir = $conf->param('path');
 my $arg_subgroups;
 if ($ARGV[0]) {
-    $subgroup = $ARGV[rand @ARGV];
-    my @wallpapers = list_dir($wallpapers_dir.$subgroup."/");
+    my $subgroup = $conf->param($ARGV[rand @ARGV]);
+    my @wallpapers = list_dir($wallpapers_dir."/".$subgroup."/");
     my $wallpaper = get_random_item(@wallpapers);
     print "$subgroup/$wallpaper\n";
-set_wallpaper($wallpapers_dir.$subgroup."/".$wallpaper);
+    set_wallpaper($wallpapers_dir."/".$subgroup."/".$wallpaper);
 } else {
     print "No subgroup defined.\n"
 }
