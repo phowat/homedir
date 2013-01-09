@@ -16,6 +16,7 @@ autocmd FileType php set sw=4 ts=4 sts=4 tw=79 smarttab
 autocmd FileType html set sw=2 ts=2 sts=2 expandtab smarttab
 autocmd FileType javascript set sw=4 ts=4 sts=4 tw=99 expandtab smarttab
 autocmd FileType perl set sw=4 ts=4 sts=4 tw=99 expandtab smarttab
+autocmd FileType c,cpp set sw=4 ts=4 sts=4 tw=99 smarttab cindent
 autocmd FileType python,rst,php match ErrorMsg '\%>79v.\+'
 autocmd FileType perl,javascript match ErrorMsg '\%>99v.\+'
 :nnoremap gt :bnext<CR>
