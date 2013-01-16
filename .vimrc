@@ -7,6 +7,7 @@
 :set autoindent
 :set nonumber
 :set hlsearch
+:set nocompatible
 filetype indent on
 filetype on
 filetype plugin on
@@ -28,3 +29,5 @@ autocmd FileType perl,javascript match ErrorMsg '\%>99v.\+'
 :set background=dark
 :hi Normal ctermbg=None
 :set hlsearch
+:set backspace=indent,eol,start
+:set ruler
