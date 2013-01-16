@@ -26,6 +26,5 @@ autocmd FileType perl,javascript match ErrorMsg '\%>99v.\+'
 :map fr \be
 :syntax on
 :set background=dark
-colorscheme solarized
 :hi Normal ctermbg=None
 :set hlsearch
