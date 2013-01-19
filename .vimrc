@@ -1,3 +1,4 @@
+execute pathogen#infect()
 :set noscb
 :set hidden
 :set ignorecase
