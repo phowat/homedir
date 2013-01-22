@@ -7,6 +7,7 @@ use autodie;
 use utf8;
 use Data::Dumper;
 use Config::Simple;
+use Getopt::Long;
 
 sub list_dir {
     my $dir = shift;
