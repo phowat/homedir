@@ -1,0 +1,24 @@
+#! env python
+"""
+Takes a file which contains a list of filepaths and a command to execute on
+each of them. 
+
+Ex: filepath -f /tmp/junk -c "rm -fR {{file}}"
+"""
+
+from optparse import OptionParser
+from os import system
+
+if __name__ == '__main__':
+    parser = OptionParser()
+    parser.add_option('-f', '--file', dest='filepath', action='store',
+        help='file containing the a of filepaths')
+    parser.add_option('-c', '--cmd', dest='cmd', action='store',
+        help='command to be executed for each file on the list')
+    (options, args) = parser.parse_args()
+
+    files = open(options.filepath, 'r')
+    for file in files: 
+        cmd = options.cmd.replace('{{file}}', file.strip());
+        system(cmd)
+
