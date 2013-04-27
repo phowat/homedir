@@ -37,3 +37,10 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 export PATH="$PATH":/home/pedro/Code/depot_tools:/home/pedro/scripts
+
+source ~/perl5/perlbrew/etc/bashrc
+source ~/Code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/Code/zsh-output-highlighting/zsh-output-highlighting.zsh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
