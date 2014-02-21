@@ -2,6 +2,8 @@
 
 # Crontab entry should look like:
 # * * * * * export DISPLAY=:0 ; /home/pedro/scripts/background.pl subgroup1 subgroup2 ... >> /tmp/bg.log 2> /tmp/bg.err
+#* * * * * export  export $(grep -h DBUS_SESSION_BUS_ADDRESS= /home/pedro/.dbus/session-bus/$(ls -1t $TMP | head -n 1)) ; export DISPLAY=:0 ; /home/pedro/scripts/background.pl dir1 >> /tmp/bg.log 2> /tmp/bg.err
+
 
 use autodie;
 use utf8;
@@ -32,9 +34,9 @@ sub set_wallpaper {
     my $wallpaper_name = shift;
 
 # Unity
-#    system( "/usr/bin/gsettings", 
-#          "set",  "org.gnome.desktop.background",  
-#          "picture-uri", "file://".$wallpapers_dir.$wallpaper_name );
+    system( "/usr/bin/gsettings", 
+          "set",  "org.gnome.desktop.background",  
+          "picture-uri", "file://".$wallpapers_dir.$wallpaper_name );
 
 # MATE
 #    system( "/usr/bin/mateconftool-2", 
@@ -42,7 +44,7 @@ sub set_wallpaper {
 #            '/desktop/mate/background/picture_filename', $wallpapers_dir.$wallpaper_name);
 
 # Xmonad
-    system("/usr/bin/feh", "--bg-max", $wallpaper_name);
+#    system("/usr/bin/feh", "--bg-max", $wallpaper_name);
 };
 
 my $conf = new Config::Simple('/home/pedro/.bgrc');

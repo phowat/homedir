@@ -19,8 +19,9 @@ myKeys =
     -- other additional keys
     ("C-S-l", spawn "/usr/bin/xlock") 
     , ("C-S-j", spawn "/home/pedro/scripts/background.pl dir1") 
-    , ("C-S-k", spawn "/home/pedro/scripts/background.pl dir1 dir2 dir2") 
+    , ("C-S-k", spawn "/home/pedro/scripts/background.pl dir2") 
     , ("C-S-h", spawn "/home/pedro/scripts/background.pl dir3") 
+    , ("C-S-g", spawn "/home/pedro/scripts/background.pl dir4") 
     ]
     ++
     [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
