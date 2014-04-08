@@ -13,3 +13,4 @@ xmodmap -e 'add Control = Control_L'
 #export PATH=$PATH:$HOME/.cabal/bin
 
 #DISPLAY=:0 /home/pedro/scripts/background.pl
+#/home/pedro/scripts/set-crontab.py

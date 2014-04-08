@@ -27,6 +27,7 @@ autocmd FileType perl,javascript match ErrorMsg '\%>99v.\+'
 :nnoremap gT :bprevious<CR>
 :map <F2> :NERDTreeToggle<cr> 
 :map <c-x> :NERDTreeToggle<cr> 
+:map <m-t> :CtrlP<cr>
 :map fr \be
 :syntax on
 ":set background=dark
