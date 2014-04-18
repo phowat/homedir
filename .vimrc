@@ -47,3 +47,7 @@ set timeout ttimeoutlen=50
 " Keybindings for λ and ƒ
 :inoremap <A-l> <C-v>u3bb<Space>
 :inoremap <A-f> <C-v>u192<Space>
+
+"let g:Perl_DirectRun='yes'
+let g:Perl_Perl='/home/pedro/perl5/perlbrew/perls/perl-5.18.2/bin/perl'
+
