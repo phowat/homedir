@@ -47,8 +47,7 @@
 #     REVISION: ---
 #===============================================================================
 
-use strict;
-use warnings;
+use Modern::Perl '2013';
 use utf8;
 
 == Comments.file description pm == map:chpm, sc:d, start, noindent ==
