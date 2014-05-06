@@ -4,3 +4,4 @@
 .xmonad/xmonad.o
 lein
 synergy.conf
+.vim/.netrwhist

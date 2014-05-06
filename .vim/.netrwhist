@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/pedro/Documents'
-let g:netrw_dirhist_2='/home/pedro/scripts'
-let g:netrw_dirhist_3='/home/pedro/Code/curtocartao/app/controllers'
-let g:netrw_dirhist_4='/home/pedro/.gnome/apps'
-let g:netrw_dirhist_5='/home/pedro/Dropbox/Documents/uowms'
