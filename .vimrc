@@ -20,9 +20,10 @@ autocmd FileType html set sw=2 ts=2 sts=2 expandtab smarttab
 autocmd FileType javascript set sw=4 ts=4 sts=4 tw=99 expandtab smarttab
 autocmd FileType perl set sw=2 ts=2 sts=2 tw=99 expandtab smarttab
 autocmd FileType c,cpp set sw=4 ts=4 sts=4 tw=99 smarttab cindent
+autocmd FileType rust,rs set sw=4 ts=4 sts=4 tw=99 expandtab smarttab
 " autocmd FileType python,rst,php match ErrorMsg '\%>79v.\+'
 autocmd FileType python,rst match ErrorMsg '\%>79v.\+'
-autocmd FileType perl,javascript match ErrorMsg '\%>99v.\+'
+autocmd FileType perl,javascript,rust,rs match ErrorMsg '\%>99v.\+'
 :nnoremap gt :bnext<CR>
 :nnoremap gT :bprevious<CR>
 :map <F2> :NERDTreeToggle<cr> 
