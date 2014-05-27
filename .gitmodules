@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/rust"]
+	path = .vim/bundle/rust
+	url = git://github.com/wting/rust.vim.git
