@@ -24,6 +24,8 @@ autocmd FileType rust,rs set sw=4 ts=4 sts=4 tw=99 expandtab smarttab
 " autocmd FileType python,rst,php match ErrorMsg '\%>79v.\+'
 autocmd FileType python,rst match ErrorMsg '\%>79v.\+'
 autocmd FileType perl,javascript,rust,rs match ErrorMsg '\%>99v.\+'
+autocmd filetype c nnoremap <F4> :w <bar> exec '!make' <CR>
+autocmd filetype c nnoremap <F5> :w <bar> exec '!sudo make install' <CR>
 :nnoremap gt :bnext<CR>
 :nnoremap gT :bprevious<CR>
 :map <F2> :NERDTreeToggle<cr> 
