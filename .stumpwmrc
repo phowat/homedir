@@ -1,0 +1,15 @@
+(in-package :stumpwm)
+
+(set-prefix-key (kbd "C-q"))
+;;(require 'swank)
+;;(swank:create-server)
+
+(run-shell-command "setxkbmap us -variant intl -option nodeadkeys")
+(run-shell-command "xmodmap -e 'keycode 66 = Control_L'")
+(run-shell-command "xmodmap -e 'clear Lock'")
+(run-shell-command "xmodmap -e 'add Control = Control_L'")
+(run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/stump/wallpaper-2878104.jpg")
+
+(stumpwm:toggle-mode-line (stumpwm:current-screen)
+                         (stumpwm:current-head))
+

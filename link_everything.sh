@@ -1,6 +1,6 @@
 #! /bin/bash
 
-targets=( ".screenrc" "scripts" ".vim" ".vimrc" ".xmonad" ".zshrc" ".tmux.conf" )
+targets=( ".screenrc" "scripts" ".vim" ".vimrc" ".xmonad" ".zshrc" ".tmux.conf" ".stumpwmrc" )
 for target in "${targets[@]}"
 do
 	if [ -e ~/$target -a "$1" = "-f" ]; then
