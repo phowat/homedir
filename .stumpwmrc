@@ -4,12 +4,22 @@
 ;;(require 'swank)
 ;;(swank:create-server)
 
-(run-shell-command "setxkbmap us -variant intl -option nodeadkeys")
-(run-shell-command "xmodmap -e 'keycode 66 = Control_L'")
-(run-shell-command "xmodmap -e 'clear Lock'")
-(run-shell-command "xmodmap -e 'add Control = Control_L'")
-(run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/stump/wallpaper-2878104.jpg")
+(setf *mode-line-background-color* "Black"
+      *mode-line-foreground-color* "white"
+      *mode-line-border-color*     "white"
+      *mode-line-timeout*          1
+      *mode-line-screen-position* :top)
+;;      *window-format* "<%n%s%m%30t>"
+;;      *screen-mode-line-format*  
+;;     (list "[%w]   | "
+;;      '(:eval (run-shell-command "ifconfig|grep inet|awk '{print $3}'|head -1 " t))))
 
 (stumpwm:toggle-mode-line (stumpwm:current-screen)
                          (stumpwm:current-head))
+
+(run-shell-command "/usr/bin/setxkbmap us -variant intl -option nodeadkeys")
+(run-shell-command "/usr/bin/xmodmap -e 'keycode 66 = Control_L'")
+(run-shell-command "/usr/bin/xmodmap -e 'clear Lock'")
+(run-shell-command "/usr/bin/xmodmap -e 'add Control = Control_L'")
+(run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/727609.jpg")
 
