@@ -25,3 +25,6 @@
 (run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/727609.jpg")
 (run-shell-command "/bin/sh -c gnome-terminal")
 (run-shell-command "/bin/sh -c google-chrome")
+
+(define-key *top-map* (kbd "C-M-l") "gnext")
+(define-key *top-map* (kbd "C-M-h") "gprev")
