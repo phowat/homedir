@@ -6,8 +6,8 @@
 (swank:create-server)
 
 (setf *mode-line-background-color* "Black"
-      *mode-line-foreground-color* "white"
-      *mode-line-border-color*     "white"
+      *mode-line-foreground-color* "Magenta"
+      *mode-line-border-color*     "Green"
       *mode-line-timeout*          1
       *mode-line-screen-position* :top)
 ;;      *window-format* "<%n%s%m%30t>"
@@ -23,8 +23,20 @@
 (run-shell-command "/usr/bin/xmodmap -e 'clear Lock'")
 (run-shell-command "/usr/bin/xmodmap -e 'add Control = Control_L'")
 (run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/727609.jpg")
-(run-shell-command "gnome-terminal -e tmux")
 (run-shell-command "/bin/sh -c google-chrome")
+(run-shell-command "gnome-terminal -e tmux")
+
+(grename "1")
+(gnew "2")
+(gnew "3")
+(gnew "4")
+(gnew "5")
+(gnew "6")
+(gnext)
+(defcommand triple-gnext () () (gnext) (gnext) (gnext))
+(defcommand triple-gprev () () (gprev) (gprev) (gprev))
 
 (define-key *top-map* (kbd "C-M-l") "gnext")
 (define-key *top-map* (kbd "C-M-h") "gprev")
+(define-key *top-map* (kbd "C-M-k") "triple-gprev")
+(define-key *top-map* (kbd "C-M-j") "triple-gnext")
