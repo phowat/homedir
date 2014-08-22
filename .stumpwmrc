@@ -1,5 +1,6 @@
 (in-package :stumpwm)
 
+(run-shell-command "/usr/bin/setxkbmap us -variant intl")
 (set-prefix-key (kbd "C-i"))
 (require 'swank)
 (swank:create-server)
@@ -18,7 +19,6 @@
                          (stumpwm:current-head))
 
 ;;(run-shell-command "/usr/bin/setxkbmap us -variant intl -option nodeadkeys")
-(run-shell-command "/usr/bin/setxkbmap us -variant intl")
 (run-shell-command "/usr/bin/xmodmap -e 'keycode 66 = Control_L'")
 (run-shell-command "/usr/bin/xmodmap -e 'clear Lock'")
 (run-shell-command "/usr/bin/xmodmap -e 'add Control = Control_L'")
