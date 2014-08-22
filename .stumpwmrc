@@ -1,4 +1,8 @@
+;; -*- lisp -*- 
+;; vim: set filetype=lisp:
+
 (in-package :stumpwm)
+
 
 (run-shell-command "/usr/bin/setxkbmap us -variant intl")
 (set-prefix-key (kbd "C-i"))
