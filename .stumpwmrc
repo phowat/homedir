@@ -23,3 +23,5 @@
 (run-shell-command "/usr/bin/xmodmap -e 'clear Lock'")
 (run-shell-command "/usr/bin/xmodmap -e 'add Control = Control_L'")
 (run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/727609.jpg")
+(run-shell-command "/bin/sh -c gnome-terminal")
+(run-shell-command "/bin/sh -c google-chrome")
