@@ -33,6 +33,24 @@
         (run-shell-command "gnome-terminal -e tmux")
         (setq *startup-only-initialized* t))))
  
+(defun amixer-set-master (set-to)
+  "Uses amixer to set Master, echoing that part of the response that includes the volume."
+  (message
+   (run-shell-command
+    (concatenate 'string "amixer set Master " set-to " | grep '\[*%\]'")
+    t)))
+
+(defcommand raise-volume () ()
+  "Raise volume via amixer"
+  (amixer-set-master "5+"))
+
+(defcommand lower-volume () ()
+  "Lower volume via amixer"
+  (amixer-set-master "5-"))
+
+(defcommand toggle-mute-volume () ()
+  "Toggle volume mute via amixer"
+  (amixer-set-master "toggle"))
 
 (set-prefix-key (kbd "C-i"))
 
@@ -57,3 +75,7 @@
 (define-key *top-map* (kbd "C-M-h") "gprev")
 (define-key *top-map* (kbd "C-M-k") "triple-gprev")
 (define-key *top-map* (kbd "C-M-j") "triple-gnext")
+
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "raise-volume")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "lower-volume")
+(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
