@@ -42,16 +42,16 @@
 
 (defcommand raise-volume () ()
   "Raise volume via amixer"
-  (amixer-set-master "5+"))
+  (amixer-set-master "1+"))
 
 (defcommand lower-volume () ()
   "Lower volume via amixer"
-  (amixer-set-master "5-"))
+  (amixer-set-master "1-"))
 
-(defcommand toggle-mute-volume () ()
-  "Toggle volume mute via amixer"
-  (amixer-set-master "toggle"))
-
+;;(defcommand toggle-mute-volume () ()
+;;  "Toggle volume mute via amixer"
+;;  (amixer-set-master "toggle"))
+;;
 (set-prefix-key (kbd "C-i"))
 
 (setf *mode-line-background-color* "Black"
@@ -80,6 +80,6 @@
 
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "raise-volume")
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "lower-volume")
-(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
+;;(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
 
 (define-key *root-map* (kbd "B") "battery-info")
