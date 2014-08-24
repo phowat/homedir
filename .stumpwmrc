@@ -70,6 +70,8 @@
 
 (defcommand triple-gnext () () (gnext) (gnext) (gnext))
 (defcommand triple-gprev () () (gprev) (gprev) (gprev))
+(defcommand battery-info () () 
+  (echo (run-shell-command "acpi -V | head -n 1" t)))
 
 (define-key *top-map* (kbd "C-M-l") "gnext")
 (define-key *top-map* (kbd "C-M-h") "gprev")
@@ -79,3 +81,5 @@
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "raise-volume")
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "lower-volume")
 (define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
+
+(define-key *root-map* (kbd "B") "battery-info")
