@@ -2,7 +2,9 @@
 ;; vim: set filetype=lisp:
 
 (in-package :stumpwm)
-(require 'swank)
+(if (boundp '*startup-only-initialized*)
+    (message "Already initialized, so skipping X setup.")
+    (require 'swank))
 
 ;; switch to intl keyboard layot, remap my Caps Lock as CTRL 
 (run-shell-command (concatenate 'string "/usr/bin/setxkbmap us -variant intl && "
@@ -13,7 +15,7 @@
 ;; stuff I don't want to run again on reloads
 (defun startup-only ()
   (defvar *startup-only-initialized*)
-  (if (boundp '*initialized*)
+  (if (boundp '*startup-only-initialized*)
       (message "Already initialized, so skipping X setup.")
       (progn
   ;;      (run-shell-command "trayer --SetDockType false --transparent false --SetPartialStrut --widthtype --expand false --width 50")
