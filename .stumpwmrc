@@ -1,6 +1,12 @@
 ;; -*- lisp -*- 
 ;; vim: set filetype=lisp:
 
+;; TODO:
+;; Poweroff command
+;; Display date command
+;; Trayer
+
+
 (in-package :stumpwm)
 (if (boundp '*startup-only-initialized*)
     (message "Already initialized, so skipping X setup.")
