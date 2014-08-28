@@ -5,6 +5,7 @@
 ;; Poweroff command
 ;; Display date command
 ;; Trayer
+;; Command to recreate my groups to use after crashes
 
 
 (in-package :stumpwm)
