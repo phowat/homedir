@@ -35,7 +35,7 @@
       (progn
   ;;      (run-shell-command "trayer --SetDockType false --transparent false --SetPartialStrut --widthtype --expand false --width 50")
   ;;      (run-shell-command "nm-applet --sm-disable")
-  ;;      (run-shell-command "xscreensaver &")
+        (run-shell-command "xscreensaver &")
         (swank:create-server)
         (create-grps)
         (run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/727609.jpg")
@@ -61,6 +61,9 @@
 (defcommand lower-volume () ()
   "Lower volume via amixer"
   (amixer-set-master "1-"))
+
+(defcommand lock-screen () ()
+  (run-shell-command "xscreensaver-command -lock"))
 
 ;;(defcommand toggle-mute-volume () ()
 ;;  "Toggle volume mute via amixer"
@@ -98,3 +101,4 @@
 ;;(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
 
 (define-key *root-map* (kbd "B") "battery-info")
+(define-key *root-map* (kbd "L") "lock-screen")
