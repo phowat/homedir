@@ -12,11 +12,12 @@
     (message "Already initialized, so skipping X setup.")
     (require 'swank))
 
-;; switch to intl keyboard layot, remap my Caps Lock as CTRL 
-(run-shell-command (concatenate 'string "/usr/bin/setxkbmap us -variant intl && "
-                                        "/usr/bin/xmodmap -e 'keycode 66 = Control_L' && "
-                                        "/usr/bin/xmodmap -e 'clear Lock' && "
-                                        "/usr/bin/xmodmap -e 'add Control = Control_L'"))
+(defun setup-kbd () 
+  "switch to intl keyboard layot, remap my Caps Lock as CTRL"
+  (run-shell-command (concatenate 'string "/usr/bin/setxkbmap us -variant intl && "
+                                          "/usr/bin/xmodmap -e 'keycode 66 = Control_L' && "
+                                          "/usr/bin/xmodmap -e 'clear Lock' && "
+                                          "/usr/bin/xmodmap -e 'add Control = Control_L'")))
 
 (defun create-grps ()
   (grename "1")
@@ -49,6 +50,11 @@
    (run-shell-command
     (concatenate 'string "amixer set Master " set-to " | grep '\[*%\]'")
     t)))
+
+(setup-kbd)
+
+(defcommand setup-keyboard () ()
+  (setup-kbd))
 
 (defcommand create-groups () ()
   "My default 6 groups setup"
