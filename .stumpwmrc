@@ -25,7 +25,7 @@
   (gnew "3")
   (gnew "4")
   (gnew "5")
-  (gnew "6")
+  (gnew-float "6")
   (gnext))
 
 ;; stuff I don't want to run again on reloads
@@ -34,8 +34,9 @@
   (if (boundp '*startup-only-initialized*)
       (message "Already initialized, so skipping X setup.")
       (progn
-  ;;      (run-shell-command "trayer --SetDockType false --transparent false --SetPartialStrut --widthtype --expand false --width 50")
-  ;;      (run-shell-command "nm-applet --sm-disable")
+        (run-shell-command "trayer --SetDockType false --transparent false --SetPartialStrut --widthtype --expand false --width 50")
+        (run-shell-command "nm-applet --sm-disable")
+        (run-shell-command "gnome-sound-applet")
         (run-shell-command "xscreensaver &")
         (swank:create-server)
         (create-grps)
