@@ -21,6 +21,10 @@
   (gnew-float "6")
   (gnext))
 
+(defcommand chrome () ()
+  "Start browser or switch to it, if it is already running."
+  (run-or-raise "google-chrome" '(:instance "chrome")))
+
 ;; stuff I don't want to run again on reloads
 (defun startup-only ()
   (defvar *startup-only-initialized*)
@@ -34,7 +38,7 @@
         (swank:create-server)
         (create-grps)
         (run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/727609.jpg")
-        (run-shell-command "/bin/sh -c google-chrome")
+        (chrome)
         (run-shell-command "gnome-terminal -e tmux")
         (setq *startup-only-initialized* t))))
  
@@ -118,3 +122,9 @@
 (define-key *root-map* (kbd "c")  "exec gnome-terminal")
 (define-key *root-map* (kbd "C-c") "exec gnome-terminal")
 
+
+;;(defcommand firefox () ()
+;;  "run firefox"
+;;  (run-or-raise "firefox" '(:class "Firefox")))
+
+(define-key *root-map* (kbd "C") "chrome")
