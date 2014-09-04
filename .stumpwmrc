@@ -1,12 +1,6 @@
 ;; -*- lisp -*- 
 ;; vim: set filetype=lisp:
 
-;; TODO:
-;; Poweroff command
-;; Display date command
-;; Trayer
-
-
 (in-package :stumpwm)
 (if (boundp '*startup-only-initialized*)
     (message "Already initialized, so skipping X setup.")
@@ -18,7 +12,6 @@
                                           "/usr/bin/xmodmap -e 'keycode 66 = Control_L' && "
                                           "/usr/bin/xmodmap -e 'clear Lock' && "
                                           "/usr/bin/xmodmap -e 'add Control = Control_L'")))
-
 (defun create-grps ()
   (grename "1")
   (gnew "2")
@@ -71,6 +64,18 @@
 
 (defcommand lock-screen () ()
   (run-shell-command "xscreensaver-command -lock"))
+
+(defcommand poweroff () ()
+  (run-shell-command "sudo poweroff"))
+
+(defcommand reboot () ()
+  (run-shell-command "sudo reboot"))
+
+(defcommand suspend () ()
+  (run-shell-command "sudo pm-suspend"))
+
+(defcommand hibernate () ()
+  (run-shell-command "sudo pm-hibernate"))
 
 ;;(defcommand toggle-mute-volume () ()
 ;;  "Toggle volume mute via amixer"
