@@ -114,3 +114,7 @@
 
 (define-key *root-map* (kbd "B") "battery-info")
 (define-key *root-map* (kbd "L") "lock-screen")
+
+(define-key *root-map* (kbd "c")  "exec gnome-terminal")
+(define-key *root-map* (kbd "C-c") "exec gnome-terminal")
+
