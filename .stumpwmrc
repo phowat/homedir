@@ -6,28 +6,7 @@
     (message "Already initialized, so skipping X setup.")
     (require 'swank))
 
-(defun setup-kbd () 
-  "switch to intl keyboard layot, remap my Caps Lock as CTRL"
-  (run-shell-command (concatenate 'string "/usr/bin/setxkbmap us -variant intl && "
-                                          "/usr/bin/xmodmap -e 'keycode 66 = Control_L' && "
-                                          "/usr/bin/xmodmap -e 'clear Lock' && "
-                                          "/usr/bin/xmodmap -e 'add Control = Control_L'")))
-(defun create-grps ()
-  (grename "1")
-  (gnew "2")
-  (gnew "3")
-  (gnew "4")
-  (gnew "5")
-  (gnew-float "6")
-  (gnext))
-
-(defcommand chrome () ()
-  "Start browser or switch to it, if it is already running."
-  (run-or-raise "google-chrome" '(:instance "chrome")))
-
-(defcommand gnome-terminal () ()
-  "Start or go to the closest gnome-terminal"
-  (run-or-raise "gnome-terminal" '(:instance "gnome-terminal")))
+(set-prefix-key (kbd "C-i"))
 
 ;; stuff I don't want to run again on reloads
 (defun startup-only ()
@@ -40,27 +19,19 @@
         (run-shell-command "gnome-sound-applet")
         (run-shell-command "xscreensaver &")
         (swank:create-server)
-        (create-grps)
+        (create-groups)
         (run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/727609.jpg")
         (chrome)
         (run-shell-command "gnome-terminal -e tmux")
         (setq *startup-only-initialized* t))))
  
+;; Volume control commands
 (defun amixer-set-master (set-to)
   "Uses amixer to set Master, echoing that part of the response that includes the volume."
   (message
    (run-shell-command
     (concatenate 'string "amixer set Master " set-to " | grep '\[*%\]'")
     t)))
-
-(setup-kbd)
-
-(defcommand setup-keyboard () ()
-  (setup-kbd))
-
-(defcommand create-groups () ()
-  "My default 6 groups setup"
-  (create-grps))
 
 (defcommand raise-volume () ()
   "Raise volume via amixer"
@@ -70,9 +41,32 @@
   "Lower volume via amixer"
   (amixer-set-master "1-"))
 
-(defcommand lock-screen () ()
-  (run-shell-command "xscreensaver-command -lock"))
+;;(defcommand toggle-mute-volume () ()
+;;  "Toggle volume mute via amixer"
+;;  (amixer-set-master "toggle"))
+;;
 
+;; Application startup commands
+(defcommand chrome () ()
+  "Start browser or switch to it, if it is already running."
+  (run-or-raise "google-chrome" '(:instance "chrome")))
+
+(defcommand gnome-terminal () ()
+  "Start or go to the closest gnome-terminal"
+  (run-or-raise "gnome-terminal" '(:instance "gnome-terminal")))
+
+(defcommand firefox () ()
+  "run firefox"
+  (run-or-raise "firefox" '(:class "Firefox")))
+
+(defcommand setup-keyboard () ()
+  "switch to intl keyboard layot, remap my Caps Lock as CTRL"
+  (run-shell-command (concatenate 'string "/usr/bin/setxkbmap us -variant intl && "
+                                          "/usr/bin/xmodmap -e 'keycode 66 = Control_L' && "
+                                          "/usr/bin/xmodmap -e 'clear Lock' && "
+                                          "/usr/bin/xmodmap -e 'add Control = Control_L'")))
+
+;; Power controls 
 (defcommand poweroff () ()
   (run-shell-command "sudo poweroff"))
 
@@ -85,18 +79,41 @@
 (defcommand hibernate () ()
   (run-shell-command "sudo pm-hibernate"))
 
+;; Group navigation
 (defcommand triple-gnext () () (gnext) (gnext) (gnext))
 (defcommand triple-gprev () () (gprev) (gprev) (gprev))
-(defcommand battery-info () () (echo (run-shell-command "acpi -V | head -n 1" t)))
-;;(defcommand firefox () ()
-;;  "run firefox"
-;;  (run-or-raise "firefox" '(:class "Firefox")))
-;;(defcommand toggle-mute-volume () ()
-;;  "Toggle volume mute via amixer"
-;;  (amixer-set-master "toggle"))
-;;
-(set-prefix-key (kbd "C-i"))
 
+;; Misc 
+(defcommand lock-screen () ()
+  (run-shell-command "xscreensaver-command -lock"))
+
+(defcommand create-groups () ()
+  "My default 6 groups setup"
+  (grename "1")
+  (gnew "2")
+  (gnew "3")
+  (gnew "4")
+  (gnew "5")
+  (gnew-float "6")
+  (gnext))
+
+(defcommand battery-info () () (echo (run-shell-command "acpi -V | head -n 1" t)))
+
+;; Custom key mappings
+(define-key *top-map* (kbd "C-M-l") "gnext")
+(define-key *top-map* (kbd "C-M-h") "gprev")
+(define-key *top-map* (kbd "C-M-k") "triple-gprev")
+(define-key *top-map* (kbd "C-M-j") "triple-gnext")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "raise-volume")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "lower-volume")
+;;(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
+(define-key *root-map* (kbd "B") "battery-info")
+(define-key *root-map* (kbd "L") "lock-screen")
+(define-key *root-map* (kbd "c")  "exec gnome-terminal")
+(define-key *root-map* (kbd "C-c") "chrome")
+(define-key *root-map* (kbd "C-t") "gnome-terminal")
+
+;;  Mode line
 (setf *mode-line-background-color* "Black"
       *mode-line-foreground-color* "Magenta"
       *mode-line-border-color*     "Magenta"
@@ -106,28 +123,10 @@
 ;;      *screen-mode-line-format*  
 ;;     (list "[%w]   | "
 ;;      '(:eval (run-shell-command "ifconfig|grep inet|awk '{print $3}'|head -1 " t))))
+
+;; This makes sure my mode line is always refreshed when I reload my configurations
 (stumpwm:toggle-mode-line (stumpwm:current-screen) (stumpwm:current-head))
 (stumpwm:enable-mode-line (stumpwm:current-screen) (stumpwm:current-head) t)
-;;(stumpwm:toggle-mode-line (stumpwm:current-screen) (stumpwm:current-head))
 
+(setup-keyboard)
 (startup-only)
-
-
-
-(define-key *top-map* (kbd "C-M-l") "gnext")
-(define-key *top-map* (kbd "C-M-h") "gprev")
-(define-key *top-map* (kbd "C-M-k") "triple-gprev")
-(define-key *top-map* (kbd "C-M-j") "triple-gnext")
-
-(define-key *top-map* (kbd "XF86AudioRaiseVolume") "raise-volume")
-(define-key *top-map* (kbd "XF86AudioLowerVolume") "lower-volume")
-;;(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
-
-(define-key *root-map* (kbd "B") "battery-info")
-(define-key *root-map* (kbd "L") "lock-screen")
-
-(define-key *root-map* (kbd "c")  "exec gnome-terminal")
-
-(define-key *root-map* (kbd "C-c") "chrome")
-(define-key *root-map* (kbd "C-t") "gnome-terminal")
-
