@@ -100,6 +100,8 @@
 (defcommand battery-info () () (echo (run-shell-command "acpi -V | head -n 1" t)))
 
 ;; Custom key mappings
+(define-key *top-map* (kbd "M-TAB") "next")
+(define-key *top-map* (kbd "M-ISO_Left_Tab") "prev")
 (define-key *top-map* (kbd "C-M-l") "gnext")
 (define-key *top-map* (kbd "C-M-h") "gprev")
 (define-key *top-map* (kbd "C-M-k") "triple-gprev")
