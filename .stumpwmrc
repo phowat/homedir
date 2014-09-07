@@ -24,7 +24,7 @@
         (create-groups)
         (set-wallpaper "/home/pedro/wallpapers/727609.jpg")
         (chrome)
-        (gnome-terminal)
+        (gnome-terminal "-e tmux")
         (setq *startup-only-initialized* t))))
  
 ;; Volume control commands
@@ -53,9 +53,9 @@
   "Start browser or switch to it, if it is already running."
   (run-or-raise "google-chrome" '(:instance "chrome")))
 
-(defcommand gnome-terminal () ()
+(defcommand gnome-terminal (&optional arg) (:string)
   "Start or go to the closest gnome-terminal"
-  (run-or-raise "gnome-terminal" '(:instance "gnome-terminal")))
+  (run-or-raise (concatenate 'string "gnome-terminal " arg) '(:instance "gnome-terminal")))
 
 (defcommand firefox () ()
   "run firefox"
