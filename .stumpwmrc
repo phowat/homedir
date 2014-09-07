@@ -1,6 +1,8 @@
 ;; -*- lisp -*- 
 ;; vim: set filetype=lisp:
 
+;; TODO: 
+;; Randomly assign a wallpaper when set-wallpaper is called without a filepath
 (in-package :stumpwm)
 (if (boundp '*startup-only-initialized*)
     (message "Already initialized, so skipping X setup.")
@@ -20,9 +22,9 @@
         (run-shell-command "xscreensaver &")
         (swank:create-server)
         (create-groups)
-        (run-shell-command "/usr/bin/feh --bg-max /home/pedro/wallpapers/727609.jpg")
+        (set-wallpaper "/home/pedro/wallpapers/727609.jpg")
         (chrome)
-        (run-shell-command "gnome-terminal -e tmux")
+        (gnome-terminal)
         (setq *startup-only-initialized* t))))
  
 ;; Volume control commands
@@ -99,6 +101,9 @@
 
 (defcommand battery-info () () (echo (run-shell-command "acpi -V | head -n 1" t)))
 
+(defcommand set-wallpaper (x) ((:string))
+  (run-shell-command (concatenate 'string "/usr/bin/feh --bg-max " x)))
+
 ;; Custom key mappings
 (define-key *top-map* (kbd "M-TAB") "next")
 (define-key *top-map* (kbd "M-ISO_Left_Tab") "prev")
@@ -111,7 +116,7 @@
 ;;(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
 (define-key *root-map* (kbd "B") "battery-info")
 (define-key *root-map* (kbd "L") "lock-screen")
-(define-key *root-map* (kbd "c")  "exec gnome-terminal")
+(define-key *root-map* (kbd "c")  "gnome-terminal")
 (define-key *root-map* (kbd "C-c") "chrome")
 (define-key *root-map* (kbd "C-t") "gnome-terminal")
 
