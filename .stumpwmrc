@@ -116,7 +116,7 @@
 ;;(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
 (define-key *root-map* (kbd "B") "battery-info")
 (define-key *root-map* (kbd "L") "lock-screen")
-(define-key *root-map* (kbd "c")  "gnome-terminal")
+(define-key *root-map* (kbd "c")  "exec gnome-terminal")
 (define-key *root-map* (kbd "C-c") "chrome")
 (define-key *root-map* (kbd "C-t") "gnome-terminal")
 
