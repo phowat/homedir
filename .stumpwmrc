@@ -118,6 +118,7 @@
 (define-key *root-map* (kbd "L") "lock-screen")
 (define-key *root-map* (kbd "c")  "exec gnome-terminal")
 (define-key *root-map* (kbd "C-c") "chrome")
+(define-key *root-map* (kbd "C-f") "firefox")
 (define-key *root-map* (kbd "C-t") "gnome-terminal")
 
 ;;  Mode line
