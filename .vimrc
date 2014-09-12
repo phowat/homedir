@@ -55,3 +55,4 @@ set timeout ttimeoutlen=50
 "let g:Perl_DirectRun='yes'
 let g:Perl_Perl='/home/pedro/perl5/perlbrew/perls/perl-5.18.2/bin/perl'
 
+autocmd FileType lisp RainbowParenthesesToggle
