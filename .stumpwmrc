@@ -8,6 +8,7 @@
     (message "Already initialized, so skipping X setup.")
     (require 'swank))
 
+(sleep 5)
 (set-prefix-key (kbd "C-i"))
 
 ;; stuff I don't want to run again on reloads
