@@ -8,7 +8,12 @@
     (message "Already initialized, so skipping X setup.")
     (require 'swank))
 
-(sleep 5)
+(defun is-workstation () (equal (machine-instance) "iv-pedro-ws-01"))
+
+;; During the inital load, if I don't wait those 5 seconds on my workstation, it doesn't run (setup-keyboard) correctly.
+(if (and (is-workstation) (not (boundp '*startup-only-initialized*)))
+  (sleep 5))
+
 (set-prefix-key (kbd "C-i"))
 
 ;; stuff I don't want to run again on reloads
