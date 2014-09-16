@@ -31,6 +31,7 @@
         (set-wallpaper "/home/pedro/wallpapers/727609.jpg")
         (chrome)
         (gnome-terminal "-e tmux")
+        (if (is-workstation) (firefox))
         (setq *startup-only-initialized* t))))
  
 ;; Volume control commands
