@@ -31,6 +31,7 @@
         (set-wallpaper "/home/pedro/wallpapers/727609.jpg")
         (chrome)
         (gnome-terminal "-e tmux")
+        (dropbox "start")
         (if (is-workstation) (firefox))
         (setq *startup-only-initialized* t))))
  
@@ -110,6 +111,9 @@
 
 (defcommand set-wallpaper (x) ((:string))
   (run-shell-command (concatenate 'string "/usr/bin/feh --bg-max " x)))
+
+(defcommand dropbox (action) ((:string))
+  (echo (run-shell-command (concatenate 'string "/usr/bin/dropbox " action) t)))
 
 ;; Custom key mappings
 (define-key *top-map* (kbd "M-TAB") "next")
