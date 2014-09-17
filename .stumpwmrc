@@ -16,6 +16,11 @@
 
 (set-prefix-key (kbd "C-i"))
 
+;; stuff I only use at work.
+(defun startup-only-ws ()
+  (firefox)
+  (run-shell-command "xterm /home/pedro/Code/uowm/uowmcli.sh"))
+
 ;; stuff I don't want to run again on reloads
 (defun startup-only ()
   (defvar *startup-only-initialized*)
@@ -32,7 +37,7 @@
         (chrome)
         (gnome-terminal "-e tmux")
         (dropbox "start")
-        (if (is-workstation) (firefox))
+        (if (is-workstation) (startup-only-ws))
         (setq *startup-only-initialized* t))))
  
 ;; Volume control commands
