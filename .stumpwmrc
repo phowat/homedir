@@ -23,7 +23,7 @@
   (firefox)
   (run-shell-command "xterm /home/pedro/Code/uowm/uowmcli.sh")
   (run-shell-command "rescuetime")
-)
+  (run-shell-command "gnome-terminal --tab-with-profile=solarized-transparent"))
 
 ;; stuff I don't want to run again on reloads
 (defun startup-only ()
