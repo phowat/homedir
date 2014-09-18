@@ -3,6 +3,8 @@
 
 ;; TODO: 
 ;; Randomly assign a wallpaper when set-wallpaper is called without a filepath
+;; Figure our how to use define-frame-preference
+
 (in-package :stumpwm)
 (if (boundp '*startup-only-initialized*)
     (message "Already initialized, so skipping X setup.")
@@ -121,6 +123,12 @@
 
 (defcommand dropbox (action) ((:string))
   (echo (run-shell-command (concatenate 'string "/usr/bin/dropbox " action) t)))
+
+(defcommand sflphoned () () (run-shell-command "/usr/lib/sflphone/sflphoned"))
+
+(defcommand sflphonec () () (run-shell-command "sflphone-client-gnome"))
+
+(defcommand sflphone () () (sflphoned) (sflphonec))
 
 ;; Custom key mappings
 (define-key *top-map* (kbd "M-TAB") "next")
