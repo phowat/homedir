@@ -56,6 +56,13 @@
   "Lower volume via amixer"
   (amixer-set-master "1-"))
 
+(defcommand mute-sound () ()
+  "Mutes pc sound"
+  (run-shell-command "pactl set-sink-mute 0 1"))
+
+(defcommand unmute-sound () ()
+  "Unmutes pc sound"
+  (run-shell-command "pactl set-sink-mute 0 0"))
 ;;(defcommand toggle-mute-volume () ()
 ;;  "Toggle volume mute via amixer"
 ;;  (amixer-set-master "toggle"))
