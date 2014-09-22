@@ -38,6 +38,7 @@
         (chrome)
         (gnome-terminal "-e tmux")
         (dropbox "start")
+        (synergy)
         (if (is-workstation) (startup-only-ws))
         (setq *startup-only-initialized* t))))
  
@@ -122,6 +123,8 @@
 (defcommand sflphoned () () (run-shell-command "/usr/lib/sflphone/sflphoned"))
 (defcommand sflphonec () () (run-shell-command "sflphone-client-gnome"))
 (defcommand sflphone () () (sflphoned) (sflphonec))
+
+(defcommand synergy () () (run-shell-command "synergy"))
 
 ;; Custom key mappings
 (define-key *top-map* (kbd "M-TAB") "next")
