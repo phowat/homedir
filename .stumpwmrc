@@ -67,12 +67,7 @@
 
 (defcommand toggle-mute-volume () ()
   "Toggle volume mute via amixer"
-
-;  (if (equalp (run-shell-command "/home/pedro/scripts/get-volume.sh" t) "[off]")
-  (if (equalp (with-output-to-string (asdf::*verbose-out*) (asdf:run-shell-command "/home/pedro/scripts/get-volume.sh" t)) "[on]")
-    (message "SOUND IS ON")
-    (message (run-shell-command "/home/pedro/scripts/get-volume.sh" t)))
-)
+  (message (run-shell-command "/home/pedro/Code/homedir/scripts/toggle-mute.sh" t)))
 
 
 ;; Application startup commands
