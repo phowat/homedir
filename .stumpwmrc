@@ -64,10 +64,16 @@
 (defcommand unmute-sound () ()
   "Unmutes pc sound"
   (run-shell-command "pactl set-sink-mute 0 0"))
-;;(defcommand toggle-mute-volume () ()
-;;  "Toggle volume mute via amixer"
-;;  (amixer-set-master "toggle"))
-;;
+
+(defcommand toggle-mute-volume () ()
+  "Toggle volume mute via amixer"
+
+;  (if (equalp (run-shell-command "/home/pedro/scripts/get-volume.sh" t) "[off]")
+  (if (equalp (with-output-to-string (asdf::*verbose-out*) (asdf:run-shell-command "/home/pedro/scripts/get-volume.sh" t)) "[on]")
+    (message "SOUND IS ON")
+    (message (run-shell-command "/home/pedro/scripts/get-volume.sh" t)))
+)
+
 
 ;; Application startup commands
 (defcommand chrome () ()
@@ -105,12 +111,11 @@
 (defcommand create-groups () ()
   "My default 6 groups setup"
   (grename "1")
-  (gnew "2")
-  (gnew "3")
-  (gnew "4")
-  (gnew "5")
-  (gnew-float "6")
-  (gnext))
+  (gnewbg "2")
+  (gnewbg "3")
+  (gnewbg "4")
+  (gnewbg "5")
+  (gnewbg-float "6"))
 
 (defcommand battery-info () () (echo (run-shell-command "acpi -V | head -n 1" t)))
 
@@ -135,7 +140,7 @@
 (define-key *top-map* (kbd "C-M-j") "triple-gnext")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "raise-volume")
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "lower-volume")
-;;(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
+(define-key *top-map* (kbd "XF86AudioMute") "toggle-mute-volume")
 (define-key *root-map* (kbd "B") "battery-info")
 (define-key *root-map* (kbd "L") "lock-screen")
 (define-key *root-map* (kbd "c")  "exec gnome-terminal")
