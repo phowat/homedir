@@ -43,5 +43,6 @@ source ~/Code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/Code/zsh-output-highlighting/zsh-output-highlighting.zsh
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:~/bin:$PATH"
+export PATH="/usr/local/heroku/bin:~/bin:~/nim-0.10.2/bin:$PATH"
 alias ivssh="ssh -p 2222 -i ~/.ssh/id_rsa.iv"
+export svn=http://svn.instant.intranet/svn/instantvoice

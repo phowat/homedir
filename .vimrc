@@ -22,6 +22,7 @@ autocmd FileType perl set sw=2 ts=2 sts=2 tw=99 expandtab smarttab
 autocmd FileType sql set sw=2 ts=2 sts=2 expandtab smarttab
 autocmd FileType c,cpp set sw=4 ts=4 sts=4 tw=99 smarttab cindent
 autocmd FileType rust,rs set sw=4 ts=4 sts=4 tw=99 expandtab smarttab
+autocmd FileType coffee set sw=4 ts=4 sts=4 expandtab smarttab
 autocmd FileType lisp set sw=2 ts=2 sts=2 expandtab smarttab
 " autocmd FileType python,rst,php match ErrorMsg '\%>79v.\+'
 autocmd FileType python,rst match ErrorMsg '\%>79v.\+'
