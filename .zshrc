@@ -1,5 +1,15 @@
 # Set up the prompt
 
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+   platform='freebsd'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='macosx'
+fi
+
 autoload -Uz promptinit
 promptinit
 prompt adam1
@@ -14,6 +24,10 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+if [[ $platform == 'macosx' ]]; then
+	export CLICOLOR=YES
+fi 
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -23,7 +37,9 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+if [[ $platform == 'linux' ]]; then
+	eval "$(dircolors -b)"
+fi 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -38,9 +54,17 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 export PATH="$PATH":/home/pedro/Code/depot_tools:/home/pedro/scripts
 
-source ~/perl5/perlbrew/etc/bashrc
-source ~/Code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/Code/zsh-output-highlighting/zsh-output-highlighting.zsh
+if [ -e "~/perl5/perlbrew/etc/bashrc" ]; then
+	source ~/perl5/perlbrew/etc/bashrc
+fi
+
+if [ -e "~/Code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+	source ~/Code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [ -e "~/Code/zsh-output-highlighting/zsh-output-highlighting.zsh" ]; then
+	source ~/Code/zsh-output-highlighting/zsh-output-highlighting.zsh
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:~/bin:~/nim-0.10.2/bin:$PATH"
