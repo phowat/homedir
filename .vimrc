@@ -41,6 +41,7 @@ autocmd filetype c nnoremap <F5> :w <bar> exec '!sudo make install' <CR>
 :set hlsearch
 :set backspace=indent,eol,start
 :set ruler
+:colorscheme distinguished
 
 let c='a'
 while c <= 'z'
