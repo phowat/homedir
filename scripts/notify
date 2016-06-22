@@ -1,0 +1,11 @@
+#! /bin/bash
+
+notificationText="$1"
+
+if [ -z "$2" ]; then
+	notificationTitle="Alert!"
+else
+	notificationTitle="$2"
+fi
+
+osascript -e "display notification \"$notificationText\" with title \"$notificationTitle\""
