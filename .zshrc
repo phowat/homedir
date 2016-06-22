@@ -68,6 +68,9 @@ fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:~/bin:~/nim-0.10.2/bin:$PATH"
+
 alias ivssh="ssh -p 2222 -i ~/.ssh/id_rsa.iv"
 export svn=http://svn.instant.intranet/svn/instantvoice
+export EDITOR=vim
 #alias tmux="TERM=screen-256color-bce tmux"
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
