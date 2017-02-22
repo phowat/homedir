@@ -1,4 +1,9 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'majutsushi/tagbar'
+call plug#end()
+
 :set noscb
 :set hidden
 :set ignorecase
@@ -41,7 +46,6 @@ autocmd filetype c nnoremap <F5> :w <bar> exec '!sudo make install' <CR>
 :set hlsearch
 :set backspace=indent,eol,start
 :set ruler
-:colorscheme distinguished
 
 let c='a'
 while c <= 'z'
@@ -59,3 +63,5 @@ set timeout ttimeoutlen=50
 let g:Perl_Perl='/home/pedro/perl5/perlbrew/perls/perl-5.18.2/bin/perl'
 
 autocmd FileType lisp RainbowParenthesesToggle
+
+nmap <F8> :TagbarToggle<CR>
