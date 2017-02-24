@@ -2,6 +2,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'majutsushi/tagbar'
+Plug 'arcticicestudio/nord-vim'
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
 call plug#end()
 
 :set noscb
@@ -63,5 +66,8 @@ set timeout ttimeoutlen=50
 let g:Perl_Perl='/home/pedro/perl5/perlbrew/perls/perl-5.18.2/bin/perl'
 
 autocmd FileType lisp RainbowParenthesesToggle
+
+colorscheme nord
+let g:airline#extensions#tabline#enabled = 1
 
 nmap <F8> :TagbarToggle<CR>
