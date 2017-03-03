@@ -5,6 +5,7 @@ Plug 'majutsushi/tagbar'
 Plug 'arcticicestudio/nord-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
+Plug 'blindFS/vim-taskwarrior'
 call plug#end()
 
 :set noscb
@@ -71,3 +72,4 @@ colorscheme nord
 let g:airline#extensions#tabline#enabled = 1
 
 nmap <F8> :TagbarToggle<CR>
+let g:task_rc_override = 'rc.defaultwidth=0'
