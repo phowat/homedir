@@ -6,6 +6,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'blindFS/vim-taskwarrior'
+Plug 'dodie/vim-disapprove-deep-indentation'
 call plug#end()
 
 :set noscb
