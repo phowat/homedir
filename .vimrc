@@ -7,6 +7,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'dodie/vim-disapprove-deep-indentation'
+Plug 'ipoddubny/asterisk-vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'tomlion/vim-solidity'
 call plug#end()
 
 :set noscb
@@ -23,6 +26,7 @@ filetype indent on
 filetype on
 filetype plugin on
 autocmd BufRead,BufNewFile *.ep set filetype=html
+autocmd BufRead,BufNewFile *.conf set filetype=dosini
 autocmd FileType python,rst set sw=4 ts=4 sts=4 tw=79 expandtab smarttab
 autocmd FileType ruby set sw=2 ts=2 sts=2 tw=79 expandtab smarttab
 autocmd FileType php set sw=4 ts=4 sts=4 smarttab
