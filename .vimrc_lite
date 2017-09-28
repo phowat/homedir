@@ -6,6 +6,9 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'davidhalter/jedi-vim'
+Plug 'kshenoy/vim-signature'
+Plug 'vim-scripts/Marks-Browser'
+Plug 'tomtom/tcomment_vim'
 call plug#end()
 
 :set noscb
@@ -40,6 +43,7 @@ autocmd FileType perl,javascript,rust,rs match ErrorMsg '\%>99v.\+'
 :nnoremap gT :bprevious<CR>
 :map <F2> :NERDTreeToggle<cr> 
 :map <c-x> :NERDTreeToggle<cr> 
+:map <m-x> :MarksBrowser<cr> 
 :map <m-t> :CtrlP<cr>
 :map fr \be
 :syntax on
