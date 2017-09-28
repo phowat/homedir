@@ -10,6 +10,9 @@ Plug 'dodie/vim-disapprove-deep-indentation'
 Plug 'ipoddubny/asterisk-vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'tomlion/vim-solidity'
+Plug 'kshenoy/vim-signature'
+Plug 'vim-scripts/Marks-Browser'
+Plug 'tomtom/tcomment_vim'
 call plug#end()
 
 :set noscb
@@ -47,6 +50,7 @@ autocmd filetype c nnoremap <F5> :w <bar> exec '!sudo make install' <CR>
 :nnoremap gT :bprevious<CR>
 :map <F2> :NERDTreeToggle<cr> 
 :map <c-x> :NERDTreeToggle<cr> 
+:map <m-x> :MarksBrowser<cr> 
 :map <m-t> :CtrlP<cr>
 :map fr \be
 :syntax on
