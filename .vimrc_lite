@@ -5,6 +5,7 @@ Plug 'majutsushi/tagbar'
 Plug 'arcticicestudio/nord-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 :set noscb
