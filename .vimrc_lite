@@ -7,8 +7,12 @@ Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'davidhalter/jedi-vim'
 Plug 'kshenoy/vim-signature'
-Plug 'vim-scripts/Marks-Browser'
+"Plug 'vim-scripts/Marks-Browser'
 Plug 'tomtom/tcomment_vim'
+Plug 'townk/vim-autoclose'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 :set noscb
