@@ -134,5 +134,12 @@ terminfo vt100 dl=5\E[M
 #screen -t artistas     5 bash -c "funcoeszz zzcasadosartistas; echo; echo ---FIM---; read"
 #select 1
 
+screen -t dockerd 0 /usr/local/bin/dockerd
+chdir /usr/src/instantvoice/docker-environments/
+screen -t denv 1 bash
+chdir /mnt/sources/
+screen -t src 2 bash 
+screen -t swarm 3 bash -c "cd /usr/src/instantvoice/docker-environments/; sleep 3; ./swarm-management.py start"
+
 
 
