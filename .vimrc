@@ -13,6 +13,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/Marks-Browser'
 Plug 'tomtom/tcomment_vim'
 Plug 'pearofducks/ansible-vim'
+Plug 'jvirtanen/vim-octave'
+Plug 'vim-scripts/octave.vim'
 call plug#end()
 
 :set noscb

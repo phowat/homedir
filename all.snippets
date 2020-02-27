@@ -1,0 +1,36 @@
+snippet archar 
+$this->$1 = new IV_ActiveRecord_CharField(array(
+	'max_length' => $2,
+	'nullable' => true
+));
+endsnippet
+
+snippet aryn
+$this->$1 = new IV_ActiveRecord_EnumField(array(
+	'values' => array('yes', 'no'),
+	'nullable' => true
+));
+endsnippet
+
+snippet arenum
+$this->$1 = new IV_ActiveRecord_EnumField(array(
+	'values' => array($2),
+	'nullable' => true
+));
+endsnippet
+
+snippet arint
+$this->$1 = new IV_ActiveRecord_IntegerField(array(
+	'nullable' => true
+));
+endsnippet
+
+snippet arfloat
+$this->$1 =  IV_ActiveRecord_FloatField(array(
+	'nullable' => true
+));
+endsnippet
+
+snippet dl
+debug_log($1);
+endsnippet
