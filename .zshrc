@@ -74,3 +74,6 @@ export svn=http://svn.instant.intranet/svn/instantvoice
 export EDITOR=vim
 #alias tmux="TERM=screen-256color-bce tmux"
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

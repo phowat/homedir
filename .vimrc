@@ -8,11 +8,11 @@ Plug 'bling/vim-airline'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'dodie/vim-disapprove-deep-indentation'
 Plug 'ipoddubny/asterisk-vim'
-Plug 'davidhalter/jedi-vim'
 Plug 'tomlion/vim-solidity'
 Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/Marks-Browser'
 Plug 'tomtom/tcomment_vim'
+Plug 'pearofducks/ansible-vim'
 call plug#end()
 
 :set noscb
