@@ -6,7 +6,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'blindFS/vim-taskwarrior'
-Plug 'dodie/vim-disapprove-deep-indentation'
+"Plug 'dodie/vim-disapprove-deep-indentation'
 Plug 'ipoddubny/asterisk-vim'
 Plug 'tomlion/vim-solidity'
 Plug 'kshenoy/vim-signature'
@@ -15,6 +15,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'jvirtanen/vim-octave'
 Plug 'vim-scripts/octave.vim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 :set noscb
@@ -79,7 +80,7 @@ let g:Perl_Perl='/home/pedro/perl5/perlbrew/perls/perl-5.18.2/bin/perl'
 
 autocmd FileType lisp RainbowParenthesesToggle
 
-colorscheme nord
+" colorscheme nord
 let g:airline#extensions#tabline#enabled = 1
 
 nmap <F8> :TagbarToggle<CR>
